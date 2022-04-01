@@ -1,0 +1,1 @@
+/home/leisterfrancisco/work/wasi-sdk-12.0/bin/clang++ --target=wasm32-wasi --sysroot=/home/leisterfrancisco/work/wasi-sdk-12.0/share/wasi-sysroot -Wl,--export-table -ggdb CMakeFiles/tests.dir/tests.cpp.obj -o tests.wasm  -leosio-core-debug -L/home/leisterfrancisco/work/clsdk/lib-wasm -labieos-debug -lcltestlib-debug 

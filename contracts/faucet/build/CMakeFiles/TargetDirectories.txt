@@ -1,0 +1,7 @@
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/tests.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/faucet.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/simple-malloc.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/rebuild_cache.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/edit_cache.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/faucet-abigen.dir
+/home/leisterfrancisco/Github/eoscostarica/eosio-dashboard/contracts/faucet/build/CMakeFiles/simple-malloc-debug.dir

@@ -1,0 +1,1 @@
+/home/leisterfrancisco/work/wasi-sdk-12.0/bin/clang++ --target=wasm32-wasi --sysroot=/home/leisterfrancisco/work/wasi-sdk-12.0/share/wasi-sysroot -Wl,--strip-all -O3 CMakeFiles/faucet-abigen.dir/src/faucet.cpp.obj -o faucet-abigen.wasm  -leosio-core -L/home/leisterfrancisco/work/clsdk/lib-wasm -labieos -lcltestlib 

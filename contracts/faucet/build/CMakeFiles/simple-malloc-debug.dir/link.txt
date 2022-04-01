@@ -1,0 +1,2 @@
+/home/leisterfrancisco/work/wasi-sdk-12.0/bin/llvm-ar qc libsimple-malloc-debug.a CMakeFiles/simple-malloc-debug.dir/home/leisterfrancisco/work/clsdk/eosiolib/simple_malloc.cpp.obj
+/home/leisterfrancisco/work/wasi-sdk-12.0/bin/llvm-ranlib libsimple-malloc-debug.a
