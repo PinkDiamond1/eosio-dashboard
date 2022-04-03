@@ -18,7 +18,7 @@ namespace faucets {
       return;
     }
 
-    check(faucet_itr != _faucet.end() && !faucet_itr->is_active, "Faucet account already exist");
+    check(faucet_itr != _faucet.end() && !faucet_itr->is_active, "Faucet account already exist and is active");
 
     _faucet.modify(faucet_itr, get_self(), [&]( auto& row ) {
       row.is_active = true;
@@ -27,12 +27,34 @@ namespace faucets {
 
   void contract::rmfaucet(name account) {
     require_auth(get_self());
+
+    faucet_table _faucet(get_self(), get_self().value);
+    auto faucet_itr = _faucet.find(account.value);
+
+    check(faucet_itr != _faucet.end(), "Faucet does not exist");
+
+    _faucet.modify(faucet_itr, get_self(), [&]( auto& row ) {
+      row.is_active = false;
+    });
   }
 
   void contract::givetokens(name faucet, name to) {
     require_auth(faucet);
 
+    faucet_table _faucet(get_self(), get_self().value);
+    auto faucet_itr = _faucet.find(faucet.value);
 
+    check(faucet_itr != _faucet.end() && faucet_itr->is_active, "Faucet does not exist or is not active");
+
+    asset amount = asset(10, symbol("EOS", 4));
+    string memo = "Faucet transfer";
+
+    eosio::action(
+      permission_level {get_self(), "eosio.code"_n},
+      "eosio.token"_n,
+      "transfer"_n,
+      std::make_tuple(get_self(), to, amount, memo)
+    ).send();
   }
 } // namespace faucets
 
