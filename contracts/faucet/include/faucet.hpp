@@ -9,11 +9,14 @@ using namespace std;
 using namespace eosio;
 
 namespace faucets {
+  const int64_t TOKENS_PER_REQUEST = 500;
+  const int64_t TOKEN_PRECISION = 4;
+  const std::string TOKEN_SYMBOL = "EOS";
+
   struct faucet {
     name account;
     eosio::time_point_sec interval;
     uint32_t max_tokens_per_interval;
-    bool is_active;
     eosio::time_point started_at;
     uint32_t transferred_tokens;
 
@@ -24,7 +27,6 @@ namespace faucets {
     account,
     interval,
     max_tokens_per_interval,
-    is_active,
     started_at,
     transferred_tokens
   )
@@ -43,7 +45,7 @@ namespace faucets {
   };
 
   EOSIO_ACTIONS(contract, "faucet"_n,
-                action(addfaucet, account, max_tokens_per_interval),
+                action(addfaucet, account, interval, max_tokens_per_interval),
                 action(rmfaucet, account),
                 action(givetokens, faucet, to))
 } // namespace faucets

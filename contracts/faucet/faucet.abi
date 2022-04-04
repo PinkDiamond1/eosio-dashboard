@@ -11,11 +11,11 @@
                     "type": "name"
                 },
                 {
-                    "name": "max_tokens_per_interval",
+                    "name": "interval",
                     "type": "time_point_sec"
                 },
                 {
-                    "name": "arg2",
+                    "name": "max_tokens_per_interval",
                     "type": "uint32"
                 }
             ]
@@ -43,6 +43,32 @@
                     "type": "name"
                 }
             ]
+        },
+        {
+            "name": "faucet",
+            "base": "",
+            "fields": [
+                {
+                    "name": "account",
+                    "type": "name"
+                },
+                {
+                    "name": "interval",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "max_tokens_per_interval",
+                    "type": "uint32"
+                },
+                {
+                    "name": "started_at",
+                    "type": "time_point"
+                },
+                {
+                    "name": "transferred_tokens",
+                    "type": "uint32"
+                }
+            ]
         }
     ],
     "actions": [
@@ -62,7 +88,15 @@
             "ricardian_contract": ""
         }
     ],
-    "tables": [],
+    "tables": [
+        {
+            "name": "faucets",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": [],
+            "type": "faucet"
+        }
+    ],
     "ricardian_clauses": [
         {
             "id": "datastorage",
