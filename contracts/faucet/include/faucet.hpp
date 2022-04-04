@@ -14,6 +14,8 @@ namespace faucets {
     eosio::time_point_sec interval;
     uint32_t max_tokens_per_interval;
     bool is_active;
+    eosio::time_point started_at;
+    uint32_t transferred_tokens;
 
     uint64_t primary_key() const { return account.value; }
   };
@@ -22,26 +24,11 @@ namespace faucets {
     account,
     interval,
     max_tokens_per_interval,
-    is_active
+    is_active,
+    started_at,
+    transferred_tokens
   )
   typedef eosio::multi_index<"faucets"_n, faucet> faucet_table;
-
-  struct faucet_state {
-    name account;
-    eosio::time_point_sec interval;
-    uint32_t max_tokens_per_interval;
-    bool is_active;
-
-    uint64_t primary_key() const { return account.value; }
-  };
-  EOSIO_REFLECT(
-    faucet_state,
-    account,
-    interval,
-    max_tokens_per_interval,
-    is_active
-  )
-  typedef eosio::multi_index<"faucetstats"_n, faucet_state> faucet_state_table;
 
   class contract : public eosio::contract {
     public:

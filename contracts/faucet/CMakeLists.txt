@@ -21,7 +21,7 @@ add_custom_command(TARGET faucet-abigen POST_BUILD
 )
 
 # Builds tests.wasm
-add_executable(tests tests.cpp)
+add_executable(tests tests/tests.cpp)
 target_link_libraries(tests cltestlib-debug)
 
 # These symlinks help vscode

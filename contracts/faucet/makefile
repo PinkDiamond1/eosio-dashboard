@@ -12,7 +12,6 @@ deploy:
 
 test:
 	@cd build && cltester tests.wasm
-	@echo "tested"
 
 testv:
 	@cd build && cltester -v tests.wasm
